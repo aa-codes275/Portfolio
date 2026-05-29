@@ -396,19 +396,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ──────────────────────────────────────────────────
-   FORCE TRUE DESKTOP SCALE ON MOBILE
+   FORCE true DESKTOP SCALE (Bigger & Closer View)
 ────────────────────────────────────────────────── */
 (function overrideMobileViewport() {
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   
   if (isMobile) {
-    const desktopWidth = 1366; // عرض اللاب توب اللي ثبتناه في الـ CSS
-    const screenWidth = window.screen.width; // عرض شاشة الموبايل الفعلية
+    const desktopWidth = 900; // عدلنا العرض هنا لـ 900 عشان يقرب المشهد
+    const screenWidth = window.screen.width; 
     
-    // عملية حسابية دقيقة لمعرفة نسبة الزوم أوت المطلوبة
+    // حساب نسبة الزوم الجديدة (هتطلع أكبر من الأول فالموقع هيقرب)
     const calculatedScale = screenWidth / desktopWidth;
     
-    // تعديل الـ viewport ديناميكياً لإجبار المتصفح على تصغير المشهد وعرض كل شيء
     let viewport = document.querySelector('meta[name="viewport"]');
     if (!viewport) {
       viewport = document.createElement('meta');
