@@ -1005,22 +1005,39 @@ html[dir="ltr"] .btn-arrow {
   50%  { opacity:1; transform:scaleY(1); transform-origin:top; }
   100% { opacity:0; transform:scaleY(1); transform-origin:bottom; }
 }
-
 /* ═══════════════════════════════════════════════════
-   OPTIMIZED DESKTOP VIEW FOR MOBILE (Closer & Bigger)
+   TRUE DESKTOP EXPERIENCE FOR PORTFOLIO & IMAGES
    ═══════════════════════════════════════════════════ */
+
+/* 1. تثبيت مساحة الموقع بالكامل على مقاس اللاب توب القياسي */
 html, body {
-    /* صغرنا العرض الوهمي لـ 900 عشان العناصر تبان أكبر وأقرب على الموبايل */
-    width: 400px !important; 
-    min-width: 400px !important;
-    overflow-x: visible !important;
+    width: 1024px !important;
+    min-width: 1024px !important;
+    max-width: 1024px !important;
+    overflow-x: auto !important; /* يظهر سكرول لو الموبايل احتاج، لكن التصميم مش هيتكسر */
     position: relative !important;
+    margin: 0 auto !important;
 }
 
-/* إظهار عناصر اللاب توب جنب بعضها */
-.hero-right, .nav-list, .nav-cta {
-    display: flex !important; 
+/* 2. حماية الـ Grid بتاع المشاريع والصور عشان يفضلوا جنب بعض زي اللاب توب */
+.proj-grid, .contact-grid, .hero-wrap, .about-grid {
+    display: grid !important;
+    width: 100% !important;
+}
+
+/* 3. إجبار الصور والـ Cards على الوضوح الكامل وعدم الاختفاء أو الكشّ */
+.proj-card, .proj-card img, .hero-right img, img {
+    max-width: 100% !important;
+    height: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* 4. إظهار القائمة العلوية للاب توب كاملة وإخفاء منيو الموبايل */
+#nav .nav-list, #nav .nav-cta, .hero-right {
+    display: flex !important;
 }
 .burger, #mob-menu {
-    display: none !important; 
+    display: none !important;
 }
