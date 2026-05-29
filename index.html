@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmed | Frontend Developer</title>
+  <meta name="description" content="Ahmed — Frontend Developer متخصص في HTML, CSS, JavaScript">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<canvas id="bg-canvas"></canvas>
+
+<div class="loader" id="loader">
+  <div class="loader-logo"><span>&lt;</span>Ahmed<span>/&gt;</span></div>
+  <div class="loader-bar"><div class="loader-fill" id="loader-fill"></div></div>
+</div>
+
+<nav id="nav">
+  <a href="#hero" class="nav-brand">
+    <span class="bracket">&lt;</span>Ahmed<span class="bracket">/&gt;</span>
+  </a>
+  <ul class="nav-list" id="nav-list">
+    <li><a href="#about"    class="nav-a" data-en="About Me">من أنا</a></li>
+    <li><a href="#skills"   class="nav-a" data-en="Skills">المهارات</a></li>
+    <li><a href="#projects" class="nav-a" data-en="Projects">أعمالي</a></li>
+    <li><a href="#contact"  class="nav-a" data-en="Contact">تواصل</a></li>
+    <li><button id="lang-switch" class="lang-btn" onclick="toggleLanguage()">EN</button></li>
+  </ul>
+  <a href="#contact" class="nav-cta" data-en="Collaborate ✦">للتعاون ✦</a>
+  <button class="burger" id="burger" aria-label="menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="mob-menu" id="mob-menu">
+    <a href="#about"    class="mob-a" data-en="About Me">من أنا</a>
+    <a href="#skills"   class="mob-a" data-en="Skills">المهارات</a>
+    <a href="#projects" class="mob-a" data-en="Projects">أعمالي</a>
+    <a href="#contact"  class="mob-a" data-en="Contact Me">تواصل معي</a>
+    <a href="#contact"  class="mob-cta" data-en="Collaborate Now ✦">للتعاون الآن ✦</a>
+    <button id="lang-switch-mob" class="lang-btn mob-lang-btn" onclick="toggleLanguage()">EN</button>
+  </div>
+</nav>
+
+<section id="hero" class="hero">
+  <div class="hero-wrap">
+
+    <div class="hero-left">
+      <div class="hero-status" data-en="<span class='status-dot'></span> Available for work">
+        <span class="status-dot"></span>
+        متاح للعمل الآن
+      </div>
+
+      <h1 class="hero-h1">
+        <span data-en="Hi, I am">مرحباً، أنا</span><br>
+        <span class="gtext" id="hero-name">Ahmed</span>
+      </h1>
+
+      <div class="hero-role">
+        <span class="rc">&nbsp;~$&nbsp;</span>
+        <span id="typed"></span><span class="caret">█</span>
+      </div>
+
+      <p class="hero-p" data-en="Frontend Developer & UI/UX Designer with a passion for details and clean code. I turn ideas into professional interfaces using <b>HTML · CSS · JavaScript</b> with experience in crafting dashboards and full websites.">
+        مصمم ومطور <b>Frontend</b> بشغف بالتفاصيل والكود النظيف.
+        بحول الأفكار لواجهات احترافية بـ
+        <b>HTML · CSS · JavaScript</b> وخبرة في تصميم لوحات التحكم والمواقع المتكاملة.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#projects" class="btn-main" data-en="View My Work →">شوف أعمالي <span class="btn-arrow">→</span></a>
+        <a href="#contact"  class="btn-line" data-en="Contact Me">تواصل معي</a>
+      </div>
+
+      <div class="hero-socials">
+        <a href="https://github.com/aa-codes275" target="_blank" class="soc" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/ahmed-ahmed-72811b399/" target="_blank" class="soc" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://wa.me/201123385820" target="_blank" class="soc" title="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="photo-wrap">
+        <div class="photo-glow-a"></div>
+        <div class="photo-glow-b"></div>
+        <div class="photo-card">
+          <img src="5823614069129285271_121.jpg" alt="Ahmed" class="photo-img" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
+          
+          <div class="photo-tag">
+            <span class="online-dot"></span> Available
+          </div>
+        </div>
+        <div class="photo-deco deco-1"></div>
+        <div class="photo-deco deco-2"></div>
+        <div class="photo-deco deco-3"></div>
+        <div class="photo-deco deco-4"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="scroll-hint">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+<section id="about" class="sec">
+  <div class="wrap">
+    <div class="sec-head ri">
+      <span class="sec-tag"></span>
+      <h2 class="sec-title" data-en="About Me — <span class='gtext'>Get to know me</span>">من أنا؟ <span class="gtext">تعرف عليّ</span></h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text ri">
+        <div data-en="<p>I am <b>Ahmed</b>, a Frontend Developer with years of passion for building the web. My specialty is converting designs and ideas into <b>fast, beautiful, and user-friendly</b> web pages.</p>
+                       <p>My work ranges from professional landing pages and portfolios to admin dashboards and content management systems — all crafted with close attention to details.</p>
+                       <p>I keep up with everything new in the <b>Frontend</b> world and always ensure my code is clean, readable, and fully responsive across all devices.</p>">
+          <p>أنا <b>Ahmed</b>، مطور Frontend. تخصصي هو تحويل التصاميم والأفكار إلى صفحات ويب <b>سريعة، جميلة، وسهلة الاستخدام</b>.</p>
+          <p>شغلي بيتراوح بين صفحات الهبوط الاحترافية، البورتفوليوهات، لوحات التحكم، وأنظمة إدارة المحتوى — كل ده مع اهتمام شديد بالتفاصيل.</p>
+          <p>بتابع كل جديد في عالم <b>Frontend</b> وبحرص دايماً على إن الكود يكون نظيف، مقروء، ومتوافق مع كل الأجهزة.</p>
+        </div>
+
+        <ul class="about-list">
+          <li data-en="<div class='al-icon'><svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'/><circle cx='12' cy='10' r='3'/></svg></div><div><small>Location</small><strong>Egypt 🇪🇬</strong></div>">
+            <div class="al-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div><small>الموقع</small><strong>مصر 🇪🇬</strong></div>
+          </li>
+
+          <li data-en="<div class='al-icon'><svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='7' width='20' height='14' rx='2' ry='2'/><path d='M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'/></svg></div><div><small>Specialty</small><strong>Frontend Developer & UI Designer</strong></div>">
+            <div class="al-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <div><small>التخصص</small><strong>Frontend Developer & UI Designer</strong></div>
+          </li>
+
+          <li data-en="<div class='al-icon'><svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><line x1='2' y1='12' x2='22' y2='12'/><path d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/></svg></div><div><small>Languages</small><strong>Arabic · English</strong></div>">
+            <div class="al-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div><small>اللغات</small><strong>العربية · English</strong></div>
+          </li>
+
+          <li data-en="<div class='al-icon'><span class='status-pulse'></span></div><div><small>Status</small><strong class='clr-green'>Available for work now</strong></div>">
+            <div class="al-icon">
+              <span class="status-pulse"></span>
+            </div>
+            <div><small>الحالة</small><strong class="clr-green">متاح للعمل الآن</strong></div>
+          </li>
+        </ul>
+
+         <a href="#contact" class="btn-main" style="margin-top:28px;display:inline-flex;" data-en="Contact Me →">
+
+          تواصل معي <span class="btn-arrow">→</span>
+
+        </a>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat ri" data-delay="0">
+          <div class="stat-img-box">
+            <img src="43epIkbEsTkYy.png" alt="Projects" class="stat-img">
+          </div>
+          <div class="stat-row">
+            <span class="stat-n" data-count="10">0</span>
+            <span class="stat-sym">+</span>
+          </div>
+          <div class="stat-lbl" data-en="Completed Projects">مشاريع منجزة</div>
+        </div>
+
+        <div class="stat ri" data-delay="80">
+          <div class="stat-img-box">
+            <img src="pngtree-checklistcheckexpertiselistclipboard-flat-color-icon-vec-png-image_1490531.jpg" alt="Experience" class="stat-img">
+          </div>
+          <div class="stat-row">
+            <span class="stat-n" data-count="1">0</span>
+            <span class="stat-sym">+</span>
+          </div>
+          <div class="stat-lbl" data-en="Years of Experience">سنوات خبرة</div>
+        </div>
+
+        <div class="stat ri" data-delay="160">
+          <div class="stat-img-box">
+            <img src="24291974-mensen-sociaal-netwerk-icoon-of-symbool-vector.jpg" alt="Clients" class="stat-img">
+          </div>
+          <div class="stat-row">
+            <span class="stat-n" data-count="8">0</span>
+            <span class="stat-sym">+</span>
+          </div>
+          <div class="stat-lbl" data-en="Happy Clients">عملاء سعداء</div>
+        </div>
+
+        <div class="stat ri" data-delay="240">
+          <div class="stat-img-box">
+            <img src="im4444ages.jpg" alt="Commitment" class="stat-img">
+          </div>
+          <div class="stat-row">
+            <span class="stat-n" data-count="100">0</span>
+            <span class="stat-sym">%</span>
+          </div>
+          <div class="stat-lbl" data-en="Commitment">التزام بالعمل</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="sec alt">
+  <div class="wrap">
+    <div class="sec-head ri">
+      <span class="sec-tag"></span>
+      <h2 class="sec-title" data-en="My <span class='gtext'>Skills</span>">مهاراتي <span class="gtext">التقنية</span></h2>
+      <p class="sec-sub" data-en="Technologies I use daily to design and build websites">التقنيات اللي بستخدمها يومياً في تصميم وبناء المواقع</p>
+    </div>
+
+    <div class="skills-list">
+      <div class="sk-row ri">
+        <div class="sk-left">
+          <span class="sk-ico"></span>
+          <div>
+            <div class="sk-name">HTML</div>
+            <div class="sk-desc">Semantic · Accessibility · SEO</div>
+          </div>
+        </div>
+        <div class="sk-track"><div class="sk-fill" data-w="95"><span class="sk-pct">95%</span></div></div>
+      </div>
+      <div class="sk-row ri">
+        <div class="sk-left">
+          <span class="sk-ico"></span>
+          <div>
+            <div class="sk-name">CSS & Animations</div>
+            <div class="sk-desc">Flexbox · Grid · Variables · Keyframes</div>
+          </div>
+        </div>
+        <div class="sk-track"><div class="sk-fill" data-w="92"><span class="sk-pct">92%</span></div></div>
+      </div>
+      <div class="sk-row ri">
+        <div class="sk-left">
+          <span class="sk-ico"></span>
+          <div>
+            <div class="sk-name">JavaScript</div>
+            <div class="sk-desc">DOM · Fetch API · Async · Events</div>
+          </div>
+        </div>
+        <div class="sk-track"><div class="sk-fill" data-w="80"><span class="sk-pct">80%</span></div></div>
+      </div>
+      <div class="sk-row ri">
+        <div class="sk-left">
+          <span class="sk-ico"></span>
+          <div>
+            <div class="sk-name">Next.js</div>
+             <div class="sk-desc">Server-Side Rendering · App Router · Optimized Performance</div>
+          </div>
+        </div>
+        <div class="sk-track"><div class="sk-fill" data-w="90"><span class="sk-pct">90%</span></div></div>
+      </div>
+      <div class="sk-row ri">
+        <div class="sk-left">
+          <span class="sk-ico"></span>
+          <div>
+            <div class="sk-name">Admin Dashboards</div>
+            <div class="sk-desc">CRUD · Supabase · Real-time UI</div>
+          </div>
+        </div>
+        <div class="sk-track"><div class="sk-fill" data-w="88"><span class="sk-pct">88%</span></div></div>
+      </div>
+      <div class="sk-row ri">
+        <div class="sk-left">
+          <span class="sk-ico"></span>
+          <div>
+            <div class="sk-name"> GitHub</div>
+            <div class="sk-desc">Version Control · GitHub Pages · Repos</div>
+          </div>
+        </div>
+        <div class="sk-track"><div class="sk-fill" data-w="75"><span class="sk-pct">75%</span></div></div>
+      </div>
+    </div>
+
+    <div class="tools-row ri">
+      <span class="tool">CSS Design</span>
+<span class="tool">Responsive Web Design</span>
+<span class="tool">Mobile First</span>
+<span class="tool">Flexbox</span>
+<span class="tool">CSS Grid</span>
+<span class="tool">CSS Animations</span>
+
+<span class="tool">VS Code</span>
+<span class="tool">Git & GitHub</span>
+<span class="tool">GitHub Pages</span>
+
+<span class="tool">Supabase Backend</span>
+<span class="tool">RESTful APIs</span>
+<span class="tool">JavaScript (ES6+)</span>
+
+<span class="tool">Cross-Browser Compatibility</span>
+<span class="tool">Web Performance Optimization</span>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="sec">
+  <div class="wrap">
+    <div class="sec-head ri">
+      <span class="sec-tag"></span>
+      <h2 class="sec-title" data-en="My <span class='gtext'>Projects</span>">أعمالي <span class="gtext">ومشاريعي</span></h2>
+      <p class="sec-sub" data-en="Real projects that reflect my skills — all hosted on GitHub">مشاريع حقيقية تعكس مهاراتي — كلها موجودة على GitHub</p>
+    </div>
+
+    <div class="filter-row ri">
+      <button class="f-btn active" data-f="all" data-en="All">الكل</button>
+      <button class="f-btn" data-f="css" data-en="HTML & CSS">HTML & CSS</button>
+      <button class="f-btn" data-f="js" data-en="JavaScript">JavaScript</button>
+      <button class="f-btn" data-f="dash" data-en="Dashboards">Dashboards</button>
+    </div>
+
+    <div class="proj-grid" id="proj-grid">
+
+      <article class="proj-card ri" data-cat="dash">
+        <div class="proj-screen">
+          <div class="screen-bar"><i></i><i></i><i></i></div>
+          <div class="screen-body s-dash">
+            <div class="s-sidebar"></div>
+            <div class="s-main">
+              <div class="s-row"><div class="s-box red"></div><div class="s-box"></div><div class="s-box"></div></div>
+              <div class="s-table">
+                <div class="s-tr h"></div>
+                <div class="s-tr"></div>
+                <div class="s-tr"></div>
+                <div class="s-tr"></div>
+              </div>
+            </div>
+          </div>
+          <div class="proj-hover">
+            <a href=" https://aa-codes275.github.io/kapnos_menu/" target="_blank" class="ph-btn" data-en="Live Demo 🌐">عرض مباشر 🌐</a>
+            <a href="https://github.com/aa-codes275" target="_blank" class="ph-btn ph-ghost">GitHub 🐙</a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="tag t-purple">HTML</span>
+            <span class="tag t-cyan">CSS</span>
+            <span class="tag t-green">Supabase</span>
+            <span class="tag t-orange">Dashboard</span>
+          </div>
+          <h3 class="proj-title" data-en="Kabnos Dashboard">  kapnos_menu</h3>
+            <p class="proj-desc" data-en="A premium digital cafe menu featuring a modern, vibrant color palette and seamless UI animations, coupled with a dynamic dashboard for real-time menu management.">منيو رقمي  للمقاهي يتميز بتناسق ألوان عصري وجذاب وتأثيرات بصرية مريحة للعين، مدمج مع لوحة تحكم ديناميكية لإدارة المنيو وتحديثه في الوقت الفعلي.</p>
+          <div class="proj-links">
+            <a href=" https://aa-codes275.github.io/kapnos_menu/" target="_blank" class="pl-main" data-en="<svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5'><path d='M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6'/><polyline points='15 3 21 3 21 9'/><line x1='10' y1='14' x2='21' y2='3'/></svg> Live Demo">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              عرض مباشر
+            </a>
+            <a href="https://github.com/aa-codes275" target="_blank" class="pl-ghost">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj-card ri" data-cat="css">
+        <div class="proj-screen">
+          <div class="screen-bar"><i></i><i></i><i></i></div>
+          <div class="screen-body s-landing">
+            <div class="s-nav-strip"></div>
+            <div class="s-hero-area"></div>
+            <div class="s-cards">
+              <div class="s-card"></div>
+              <div class="s-card"></div>
+              <div class="s-card"></div>
+            </div>
+          </div>
+          <div class="proj-hover">
+            <a href="https://aa-codes275.github.io/Daily-_-sips/" target="_blank" class="ph-btn" data-en="Live Demo 🌐">عرض مباشر 🌐</a>
+            <a href="https://github.com/aa-codes275" target="_blank" class="ph-btn ph-ghost">GitHub 🐙</a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="tag t-purple">HTML</span>
+            <span class="tag t-cyan">CSS</span>
+            <span class="tag t-pink">Animation</span>
+          </div>
+          <h3 class="proj-title" data-en="E-Commerce Clothing Store">Daily-_-sips Menu  </h3>
+          <p class="proj-desc" data-en="A modern, high-performance digital cafe menu design fully optimized for mobile, featuring smooth interactive animations and full content management via a dedicated dashboard.">تصميم منيو رقمي احترافي للمقاهي متوافق تماماً مع الهواتف الذكية، يتميز بتأثيرات بصرية سلسة وتحكم كامل في الأصناف والأسعار عبر لوحة تحكم مخصصة.</p>
+          <div class="">
+            <a href="https://aa-codes275.github.io/Daily-_-sips/" target="_blank" class="pl-main" data-en="<svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5'><path d='M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6'/><polyline points='15 3 21 3 21 9'/><line x1='10' y1='14' x2='21' y2='3'/></svg> Live Demo">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              عرض مباشر
+            </a>
+            <a href="https://github.com/aa-codes275" target="_blank" class="pl-ghost">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj-card ri" data-cat="js">
+        <div class="proj-screen">
+          <div class="screen-bar"><i></i><i></i><i></i></div>
+          <div class="screen-body s-app">
+            <div class="s-app-top"></div>
+            <div class="s-app-list">
+              <div class="s-app-item"><div class="s-item-dot"></div><div class="s-item-line"></div></div>
+              <div class="s-app-item"><div class="s-item-dot"></div><div class="s-item-line"></div></div>
+              <div class="s-app-item"><div class="s-item-dot"></div><div class="s-item-line"></div></div>
+              <div class="s-app-item"><div class="s-item-dot"></div><div class="s-item-line"></div></div>
+            </div>
+          </div>
+          <div class="proj-hover">
+            <a href="https://aa-codes275.github.io/Bonjour_menu/" target="_blank" class="ph-btn" data-en="Live Demo 🌐">عرض مباشر 🌐</a>
+            <a href="https://github.com/aa-codes275" target="_blank" class="ph-btn ph-ghost">GitHub 🐙</a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="tag t-cyan">JavaScript</span>
+            <span class="tag t-purple">HTML</span>
+            <span class="tag t-pink">CSS</span>
+          </div>
+          <h3 class="proj-title" data-en="Interactive Electronic Menu">  Bonjour_menu </h3>
+          <p class="proj-desc" data-en="A QR-code based digital restaurant menu tailored for sorting and displaying food and beverage categories with live dynamic price updating features.">منيو رقمي يعتمد على الـ QR Code، مخصص لعرض مصنفات الأطعمة والمشروبات والتحديث الفوري للأسعار عن طريق لوحه تحكم.</p>
+          <div class="proj-links">
+            <a href="https://aa-codes275.github.io/Bonjour_menu/" target="_blank" class="pl-main" data-en="<svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5'><path d='M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6'/><polyline points='15 3 21 3 21 9'/><line x1='10' y1='14' x2='21' y2='3'/></svg> Live Demo">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              عرض مباشر
+            </a>
+            <a href="https://github.com/aa-codes275" target="_blank" class="pl-ghost">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="proj-more ri">
+      <a href="https://github.com/aa-codes275" target="_blank" class="btn-line" data-en="All Projects on GitHub →">
+        كل أعمالي على GitHub
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="sec alt">
+  <div class="wrap">
+    <div class="sec-head center ri">
+      <span class="sec-tag"></span>
+      <h2 class="sec-title" data-en="Let's <span class='gtext'>Talk 👋</span>">خلينا <span class="gtext">نتكلم 👋</span></h2>
+      <p class="sec-sub center" data-en="New project, job opportunity, or just a question — I am always here">مشروع جديد، فرصة عمل، أو حتى سؤال — أنا هنا دايماً</p>
+    </div>
+<div class="contact-grid">
+  <div class="c-card ri" data-delay="0">
+    <div class="c-ico">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </div>
+    <div class="c-label" data-en="WhatsApp">واتساب</div>
+    <div class="c-val" data-en="Direct Chat">تواصل مباشر</div>
+    <a href="https://wa.me/201123385820" target="_blank" class="c-btn" data-en="Message Me">تواصل</a>
+  </div>
+
+  <div class="c-card ri" data-delay="80">
+    <div class="c-ico">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </div>
+    <div class="c-label" data-en="Telegram">تيليجرام</div>
+    <div class="c-val">@ahmed_21_5</div>
+    <a href="https://t.me/ahmed_21_5" target="_blank" class="c-btn" data-en="Message Me">تواصل</a>
+  </div>
+
+  <div class="c-card ri" data-delay="160">
+    <div class="c-ico">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </div>
+    <div class="c-label" data-en="Email">إيميل</div>
+    <div class="c-val" id="email-display">ahmeedd2156@gmail.com</div>
+    <button class="c-btn" onclick="copyEmail()" data-en="ahmeedd2156@gmail.com"> تواصل</button>
+  </div>
+
+  <div class="c-card ri" data-delay="240">
+    <div class="c-ico">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </div>
+    <div class="c-label">LinkedIn</div>
+    <div class="c-val">Ahmed Ahmed </div>
+    <a href="https://www.linkedin.com/in/ahmed-ahmed-72811b399/" target="_blank" class="c-btn" data-en="Visit">تواصل</a>
+  </div>
+</div>
+
+    <div class="github-strip ri">
+      <svg class="gh-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      <div class="gh-text">
+        <div class="gh-name">github.com/aa-codes275</div>
+        <div class="gh-sub" data-en="See all my repositories and work">شوف كل أعمالي ومشاريعي</div>
+      </div>
+      <a href="https://github.com/aa-codes275" target="_blank" class="btn-main" data-en="Visit Profile →">
+        زيارة الـ Profile <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-in">
+    <div class="footer-brand"><span class="bracket">&lt;</span>Ahmed<span class="bracket">/&gt;</span></div>
+    <div class="footer-copy" data-en="Made with <span class='heart'>❤</span> by <b>Ahmed</b> — Frontend Developer">صُنع بـ <span class="heart"></span> بواسطة <b>Ahmed</b> — Frontend Developer</div>
+    <button class="top-btn" id="top-btn" title="للأعلى">↑</button>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
