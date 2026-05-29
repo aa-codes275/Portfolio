@@ -1011,8 +1011,8 @@ html[dir="ltr"] .btn-arrow {
    ═══════════════════════════════════════════════════ */
 html, body {
     /* صغرنا العرض الوهمي لـ 900 عشان العناصر تبان أكبر وأقرب على الموبايل */
-    width: 900px !important; 
-    min-width: 900px !important;
+    width: 400px !important; 
+    min-width: 400px !important;
     overflow-x: visible !important;
     position: relative !important;
 }
