@@ -1006,134 +1006,196 @@ html[dir="ltr"] .btn-arrow {
   100% { opacity:0; transform:scaleY(1); transform-origin:bottom; }
 }
 /* ═══════════════════════════════════════════════════
-   OPTIMIZED PORTFOLIO RESPONSIVE ENGINE
+   RESPONSIVE ENGINE — ULTRA  (replace from line 1008 to end)
+   يغطي: ≤1200 / ≤1024 / ≤900 / ≤768 / ≤600 / ≤480 / ≤380 / Landscape
    ═══════════════════════════════════════════════════ */
 
-/* شاشات التابلت والشاشات المتوسطة */
+/* منع أي تمدد أفقي على أي جهاز */
+html, body { max-width: 100%; overflow-x: hidden; }
+img, svg, video, canvas { max-width: 100%; height: auto; }
+* { min-width: 0; }
+
+/* ── ≤ 1200px : ديسكتوب صغير ── */
+@media (max-width: 1200px) {
+  .wrap { padding: 0 28px; }
+  #nav  { padding: 0 28px; }
+  .hero { padding: 100px 28px 70px; }
+  .hero-wrap { gap: 40px; grid-template-columns: 1fr 360px; }
+  .photo-wrap { width: 300px; }
+}
+
+/* ── ≤ 1024px : تابلت أفقي ── */
 @media (max-width: 1024px) {
-  .hero-wrap { 
-    grid-template-columns: 1fr 300px; 
-    gap: 30px; 
+  .hero-wrap {
+    grid-template-columns: 1fr 280px;
+    gap: 32px;
   }
-  .about-grid { 
-    grid-template-columns: 1fr; 
-    gap: 30px; 
-  }
-  .contact-grid { 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 20px; 
-  }
-  .sk-row { 
-    grid-template-columns: 1fr; 
-    gap: 15px; 
-  }
+  .photo-wrap { width: 260px; }
+  .photo-card { max-height: 380px; }
+
+  .about-grid { grid-template-columns: 1fr; gap: 50px; }
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+  .contact-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .sk-row { grid-template-columns: 220px 1fr; gap: 18px; }
+  .proj-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+  .sec { padding: 90px 0; }
 }
 
-/* شاشات الموبايل الكبيرة والمتوسطة (المرحلة الحرجة) */
-@media (max-width: 860px) {
-  #nav { 
-    padding: 0 20px; 
-  }
-  
-  /* تفعيل المنيو الذكية للموبايل */
-  .nav-list, .nav-cta { 
-    display: none; 
-  }
-  .burger { 
-    display: flex; 
-  }
-  
-  /* الـ Hero Section: ترتيب طولي احترافي يظهر كل شيء */
-  .hero { 
-    padding: 100px 20px 60px; 
-  }
-  .hero-wrap { 
-    grid-template-columns: 1fr; 
-    text-align: center; 
+/* ── ≤ 900px : تابلت عمودي / موبايل كبير ── */
+@media (max-width: 900px) {
+  #nav { padding: 0 18px; height: 62px; }
+  .nav-list, .nav-cta { display: none; }
+  .burger { display: flex; }
+
+  /* Hero يتحول لعمود مع صورة فوق ومتمركز */
+  .hero { padding: 100px 20px 60px; min-height: auto; }
+  .hero-wrap {
+    grid-template-columns: 1fr;
     gap: 40px;
-  }
-  
-  /* بدل ما نخفي الـ hero-right والصور بتاعتك، هنظهرها بشكل أصغر ومنظم في المنتصف */
-  .hero-right { 
-    display: flex !important; 
-    justify-content: center; 
-    align-items: center;
-    order: -1; /* بيخلي صورتك أو الأنيميشن تظهر فوق الكلام لتنسيق أرتب */
-  }
-  .hero-right img {
-    max-width: 280px; /* حجم مثالي للصورة على الموبايل */
-    height: auto;
-    border-radius: 20px;
-  }
-  
-  .hero-btns {
-    justify-content: center;
-  }
-
-  /* الأقسام والمشاريع */
-  .sec { 
-    padding: 60px 0; 
-  }
-  .proj-grid { 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* بيخلي الكروت تفرش وتملى الشاشة أوتوماتيك */
-    gap: 20px;
-    padding: 0 10px;
-  }
-  .proj-card img {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: cover;
-  }
-
-  /* مهارات وتواصل */
-  .sk-left { 
-    flex-direction: row; 
-    justify-content: center; 
-    gap: 15px;
-  }
-  .contact-grid { 
-    grid-template-columns: 1fr; /* ترتيب طولي مريح ومقاوم للكسر */
-    gap: 20px; 
-  }
-  
-  .github-strip { 
-    flex-direction: column;
     text-align: center;
-    gap: 15px;
   }
-  .github-strip .btn-main { 
-    margin-right: 0; 
-    width: 100%; 
-    justify-content: center; 
-  }
-  
-  .footer { 
-    padding: 20px; 
-  }
-  .footer-in { 
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center; 
-    text-align: center; 
-  }
+  .hero-left { display: flex; flex-direction: column; align-items: center; }
+  .hero-status { margin-inline: auto; }
+  .hero-p { margin-inline: auto; }
+  .hero-btns { justify-content: center; }
+  .hero-socials { justify-content: center; }
+
+  .hero-right { order: -1; }
+  .photo-wrap { width: 260px; margin: 0 auto; }
+  .photo-card { max-height: 360px; }
+
+  /* إخفاء العناصر الزخرفية اللي ممكن تطلع برة الشاشة */
+  .photo-deco { display: none; }
+  .scroll-hint { display: none; }
+
+  .sec-head, .sec-head.ri { align-items: center; text-align: center; }
+  .sec-sub { margin-inline: auto; }
+
+  .sk-row { grid-template-columns: 1fr; gap: 14px; padding: 16px; }
+  .sk-left { justify-content: flex-start; }
+  .sk-pct { position: static; opacity: 1 !important; display: inline-block; margin-top: 6px; }
+
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .github-strip { flex-direction: column; text-align: center; gap: 16px; padding: 22px; }
+  .github-strip .btn-main { margin: 0; width: 100%; justify-content: center; }
 }
 
-/* الشاشات الصغيرة جداً (الهواتف الضيقة) */
+/* ── ≤ 768px : موبايل عريض ── */
+@media (max-width: 768px) {
+  .wrap { padding: 0 18px; }
+  .sec { padding: 70px 0; }
+
+  .hero-h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+  .hero-p  { font-size: .95rem; line-height: 1.9; }
+
+  .proj-grid { grid-template-columns: 1fr; gap: 20px; }
+  .proj-screen { height: 180px; }
+
+  .filter-row { justify-content: center; }
+  .tools-row  { justify-content: center; }
+
+  /* قائمة الموبايل تتحاذي مع الحواف */
+  .mob-menu { left: 12px; right: 12px; }
+
+  /* الفوتر */
+  .footer { padding: 22px 18px; }
+  .footer-in { flex-direction: column; text-align: center; gap: 12px; }
+}
+
+/* ── ≤ 600px : موبايل متوسط ── */
+@media (max-width: 600px) {
+  .nav-brand { font-size: 1rem; }
+  .hero { padding: 90px 16px 50px; }
+  .hero-wrap { gap: 32px; }
+
+  .photo-wrap { width: 230px; }
+  .photo-card { max-height: 320px; border-radius: 20px; }
+  .photo-tag  { bottom: 10px; right: 10px; font-size: .7rem; padding: 5px 10px; }
+
+  .sec-title { font-size: clamp(1.5rem, 6vw, 2rem); }
+  .sec-head  { margin-bottom: 36px; }
+
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .stat { padding: 22px 14px; }
+  .stat-n { font-size: 2rem; }
+  .stat-img-box { width: 50px; height: 50px; }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 14px; }
+  .c-card { padding: 22px 16px; }
+  .c-val  { font-size: .8rem; }
+
+  .btn-main, .btn-line { padding: 12px 22px; font-size: .88rem; }
+}
+
+/* ── ≤ 480px : موبايل صغير ── */
 @media (max-width: 480px) {
-  .hero-h1 { 
-    font-size: 2.1rem; 
-    line-height: 1.3;
-  }
-  .stats-grid { 
-    grid-template-columns: 1fr 1fr; 
-    gap: 15px;
-  }
-  .hero-btns { 
-    flex-direction: column; 
-    width: 100%;
-  }
-  .hero-btns .btn-main, .hero-btns .btn-line { 
-    width: 100%; 
-    justify-content: center; 
+  .wrap { padding: 0 14px; }
+  #nav  { padding: 0 14px; height: 58px; }
+
+  .hero-h1 { font-size: 2rem; line-height: 1.25; }
+  .hero-role { font-size: .85rem; }
+  .hero-status { font-size: .72rem; padding: 6px 12px; }
+
+  .photo-wrap { width: 200px; }
+  .photo-card { max-height: 280px; }
+
+  .hero-btns { flex-direction: column; width: 100%; gap: 10px; }
+  .hero-btns .btn-main,
+  .hero-btns .btn-line { width: 100%; justify-content: center; }
+
+  .sec { padding: 56px 0; }
+  .sec-head { margin-bottom: 30px; }
+
+  .sk-row   { padding: 14px; }
+  .sk-name  { font-size: .9rem; }
+  .sk-desc  { font-size: .68rem; }
+  .tool     { font-size: .78rem; padding: 6px 14px; }
+  .f-btn    { font-size: .8rem;  padding: 7px 16px; }
+
+  .proj-screen { height: 160px; }
+  .proj-title  { font-size: .95rem; }
+  .proj-desc   { font-size: .8rem; line-height: 1.7; }
+  .proj-links  { flex-direction: column; }
+  .pl-main, .pl-ghost { width: 100%; }
+
+  .github-strip { padding: 18px; gap: 12px; }
+  .gh-ico { width: 36px; height: 36px; }
+
+  .footer { padding: 18px 14px; }
+  .footer-copy { font-size: .75rem; }
+}
+
+/* ── ≤ 380px : موبايلات قديمة / صغيرة جداً ── */
+@media (max-width: 380px) {
+  .hero-h1 { font-size: 1.75rem; }
+  .photo-wrap { width: 180px; }
+  .photo-card { max-height: 250px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-n { font-size: 1.8rem; }
+  .nav-brand { font-size: .9rem; }
+  .mob-a { padding: 12px 14px; font-size: .9rem; }
+}
+
+/* ── الوضع الأفقي للموبايل (Landscape) ── */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero { min-height: auto; padding: 90px 20px 50px; }
+  .photo-wrap { width: 180px; }
+  .photo-card { max-height: 240px; }
+  .scroll-hint { display: none; }
+}
+
+/* ── إيقاف الكيرسر المخصص على أي شاشة لمس ── */
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none !important; }
+  .proj-hover { display: none !important; } /* لإن الـ hover مالوش لازمة على الموبايل */
+}
+
+/* ── تقليل الحركة لمن يفضّل ذلك ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
   }
 }
