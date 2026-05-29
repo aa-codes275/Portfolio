@@ -1006,19 +1006,21 @@ html[dir="ltr"] .btn-arrow {
   100% { opacity:0; transform:scaleY(1); transform-origin:bottom; }
 }
 
-/* إجبار الموقع بالكامل على أبعاد اللاب توب ومنع الموبايل من تقفيل العناصر */
+/* ═══════════════════════════════════════════════════
+   OPTIMIZED DESKTOP VIEW FOR MOBILE (Closer & Bigger)
+   ═══════════════════════════════════════════════════ */
 html, body {
-    width: 1366px !important; /* العرض القياسي لشاشات اللاب توب */
-    min-width: 1366px !important;
-    overflow-x: visible !important; /* عشان لو في حاجة واخدة تأثير أنيميشن متختفيش */
+    /* صغرنا العرض الوهمي لـ 900 عشان العناصر تبان أكبر وأقرب على الموبايل */
+    width: 900px !important; 
+    min-width: 900px !important;
+    overflow-x: visible !important;
     position: relative !important;
 }
 
-/* إظهار كل عناصر اللاب توب اللي كنت بتخفيها في الموبايل */
+/* إظهار عناصر اللاب توب جنب بعضها */
 .hero-right, .nav-list, .nav-cta {
     display: flex !important; 
 }
 .burger, #mob-menu {
-    display: none !important; /* إخفاء زرار الموبايل القبيح */
+    display: none !important; 
 }
-
