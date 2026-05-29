@@ -1006,38 +1006,39 @@ html[dir="ltr"] .btn-arrow {
   100% { opacity:0; transform:scaleY(1); transform-origin:bottom; }
 }
 /* ═══════════════════════════════════════════════════
-   TRUE DESKTOP EXPERIENCE FOR PORTFOLIO & IMAGES
+   SMART ZOOM ENGINE FOR DESKTOP VIEW
    ═══════════════════════════════════════════════════ */
 
-/* 1. تثبيت مساحة الموقع بالكامل على مقاس اللاب توب القياسي */
-html, body {
-    width: 1024px !important;
-    min-width: 1024px !important;
-    max-width: 1024px !important;
-    overflow-x: auto !important; /* يظهر سكرول لو الموبايل احتاج، لكن التصميم مش هيتكسر */
-    position: relative !important;
-    margin: 0 auto !important;
+/* بنعرف الموبايل إن اللاب توب مقاسه الثابت 1366 بكسل */
+:root {
+  --desktop-w: 1366px;
 }
 
-/* 2. حماية الـ Grid بتاع المشاريع والصور عشان يفضلوا جنب بعض زي اللاب توب */
-.proj-grid, .contact-grid, .hero-wrap, .about-grid {
-    display: grid !important;
-    width: 100% !important;
+/* لو المستخدم فاتح من موبايل، الكود ده بيتفعل تلقائياً بالـ JS */
+body.force-desktop {
+    width: var(--desktop-w) !important;
+    min-width: var(--desktop-w) !important;
+    max-width: var(--desktop-w) !important;
+    transform-origin: top left !important; /* نقطة الارتكاز من فوق على الشمال */
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    overflow-x: hidden !important; /* منع أي سكرول جانبي أعمى */
 }
 
-/* 3. إجبار الصور والـ Cards على الوضوح الكامل وعدم الاختفاء أو الكشّ */
-.proj-card, .proj-card img, .hero-right img, img {
-    max-width: 100% !important;
-    height: auto !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
-}
-
-/* 4. إظهار القائمة العلوية للاب توب كاملة وإخفاء منيو الموبايل */
-#nav .nav-list, #nav .nav-cta, .hero-right {
+/* تأمين ظهور كل عناصر اللاب توب الأصلية جنب بعضها */
+body.force-desktop .hero-right,
+body.force-desktop .nav-list,
+body.force-desktop .nav-cta {
     display: flex !important;
 }
-.burger, #mob-menu {
+body.force-desktop .burger, 
+body.force-desktop #mob-menu {
     display: none !important;
+}
+
+/* تأمين نقاء الصور والمشاريع بنسبة 100% */
+body.force-desktop img {
+    max-width: 100% !important;
+    height: auto !important;
 }
