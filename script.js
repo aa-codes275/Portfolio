@@ -394,3 +394,28 @@ document.addEventListener('DOMContentLoaded', () => {
     setLanguage('en');
   }
 });
+
+/* ──────────────────────────────────────────────────
+   FORCE TRUE DESKTOP SCALE ON MOBILE
+────────────────────────────────────────────────── */
+(function overrideMobileViewport() {
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    const desktopWidth = 1366; // عرض اللاب توب اللي ثبتناه في الـ CSS
+    const screenWidth = window.screen.width; // عرض شاشة الموبايل الفعلية
+    
+    // عملية حسابية دقيقة لمعرفة نسبة الزوم أوت المطلوبة
+    const calculatedScale = screenWidth / desktopWidth;
+    
+    // تعديل الـ viewport ديناميكياً لإجبار المتصفح على تصغير المشهد وعرض كل شيء
+    let viewport = document.querySelector('meta[name="viewport"]');
+    if (!viewport) {
+      viewport = document.createElement('meta');
+      viewport.name = 'viewport';
+      document.head.appendChild(viewport);
+    }
+    
+    viewport.setAttribute('content', `width=${desktopWidth}, initial-scale=${calculatedScale}, minimum-scale=${calculatedScale}, maximum-scale=3.0, user-scalable=yes`);
+  }
+})();
