@@ -396,25 +396,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ──────────────────────────────────────────────────
-   FORCE true DESKTOP SCALE (Bigger & Closer View)
+   14. LOCK TEXT SIZE ADJUST FOR DESKTOP VIEW
 ────────────────────────────────────────────────── */
-(function overrideMobileViewport() {
+document.addEventListener('DOMContentLoaded', () => {
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  
   if (isMobile) {
-    const desktopWidth = 400; // عدلنا العرض هنا لـ 900 عشان يقرب المشهد
-    const screenWidth = window.screen.width; 
-    
-    // حساب نسبة الزوم الجديدة (هتطلع أكبر من الأول فالموقع هيقرب)
-    const calculatedScale = screenWidth / desktopWidth;
-    
-    let viewport = document.querySelector('meta[name="viewport"]');
-    if (!viewport) {
-      viewport = document.createElement('meta');
-      viewport.name = 'viewport';
-      document.head.appendChild(viewport);
-    }
-    
-    viewport.setAttribute('content', `width=${desktopWidth}, initial-scale=${calculatedScale}, minimum-scale=${calculatedScale}, maximum-scale=3.0, user-scalable=yes`);
+    document.documentElement.style.webkitTextSizeAdjust = '100%';
+    document.body.style.webkitTextSizeAdjust = '100%';
   }
-})();
+});
