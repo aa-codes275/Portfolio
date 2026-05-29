@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   
   if (isMobile) {
-    const desktopWidth = 900; // عدلنا العرض هنا لـ 900 عشان يقرب المشهد
+    const desktopWidth = 400; // عدلنا العرض هنا لـ 900 عشان يقرب المشهد
     const screenWidth = window.screen.width; 
     
     // حساب نسبة الزوم الجديدة (هتطلع أكبر من الأول فالموقع هيقرب)
