@@ -396,12 +396,40 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ──────────────────────────────────────────────────
-   14. LOCK TEXT SIZE ADJUST FOR DESKTOP VIEW
+   14. MASTER DESKTOP SCALING FOR MOBILE DEVICES
 ────────────────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
+(function masterDesktopScale() {
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
   if (isMobile) {
-    document.documentElement.style.webkitTextSizeAdjust = '100%';
-    document.body.style.webkitTextSizeAdjust = '100%';
+    const desktopWidth = 1366; // العرض المثالي لشاشات اللاب توب
+    
+    function applyScale() {
+      const body = document.body;
+      if (!body) return;
+      
+      // إضافة الكلاس اللي بيثبت أبعاد اللاب توب في الـ CSS
+      body.classList.add('force-desktop');
+      
+      // حساب عرض الشاشة الفعلي الآن
+      const screenWidth = window.innerWidth || document.documentElement.clientWidth || screen.width;
+      
+      // حساب نسبة التصغير المطلوبة بالملي
+      const scaleRatio = screenWidth / desktopWidth;
+      
+      // تطبيق الزوم أوت السحري على الموقع بالكامل
+      body.style.transform = `scale(${scaleRatio})`;
+      
+      // ضبط ارتفاع الـ html عشان ميبقاش في مساحة فاضية تحت الموقع بعد التصغير
+      document.documentElement.style.height = (body.scrollHeight * scaleRatio) + 'px';
+      document.documentElement.style.overflowX = 'hidden';
+    }
+    
+    // تشغيل الدالة فوراً وعند تحميل الصفحة بالكامل
+    window.addEventListener('DOMContentLoaded', applyScale);
+    window.addEventListener('load', applyScale);
+    window.addEventListener('resize', applyScale);
+    // تشغيل فوري احتياطي
+    if (document.body) applyScale();
   }
-});
+})();
